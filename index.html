@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <title>PS4 6.72 JB Menu By: Ryan</title>
+    <script>
+    function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="<h1>Installing Offline Cache: " + Percent + "%</h1>";}
+    function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="<h1>Cache Installed Successfully</h1>";},1000);setTimeout(function(){window.msgs.innerHTML="<h1>Now Close And Re-Open Your Browser</h1>";},3000);}
+	window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};
+	window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+    </script>
+    <script src="exp_common.js"></script>
+    <script src="exp_jailbreak.js"></script>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #121212;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #e0e0e0;
+            text-align: center;
+            line-height: 1.34;
+            background-image: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #0d1b2a;
+            padding: 11px 15px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #1e3a5f;
+        }
+        
+        .header h1 {
+            color: #4cc9f0;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(76, 201, 240, 0.5);
+        }
+        
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            padding: 17px;
+            text-align: center;
+            border: 1px solid #2d2d2d;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.7), 0 3px 6px rgba(0, 0, 0, 0.9);
+        }
+        
+        .card h2 {
+            color: #4cc9f0;
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #2d2d2d;
+            padding-bottom: 10px;
+            text-shadow: 0 0 5px rgba(76, 201, 240, 0.3);
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+		
+		.button-group button {
+			margin: 5px; 
+		}
+        
+        button {
+            background-color: #1e3a5f;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            padding: 12px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        button:hover::before {
+            left: 100%;
+        }
+        
+        button:hover {
+            background-color: #2a4d7a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .secondary {
+            background-color: #2d5b2d;
+        }
+        
+        .secondary:hover {
+            background-color: #3a753a;
+        }
+        
+        .tertiary {
+            background-color: #5d4037;
+        }
+        
+        .tertiary:hover {
+            background-color: #6d4c41;
+        }
+        
+        .status-message {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #e0e0e0;
+            border-left: 4px solid #4cc9f0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .status-message h1 {
+            font-size: 26px;
+            color: #4cc9f0;
+            margin: 0;
+            text-shadow: 0 0 5px rgba(76, 201, 240, 0.3);
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #4cc9f0, transparent);
+            margin: 20px 0;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            color: #5a5a5a;
+            font-size: 14px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Toggle Switch Styles */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        
+        .toggle-label {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #2d2d2d;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #4cc9f0;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PS4 6.72 JAILBREAK MENU</h1>
+        </div>
+        
+        <div class="status-message" id="msgs">
+            <h1>Ready to load exploit</h1>
+        </div>
+        
+        <div class="card">
+            <h2>MANUAL JAILBREAK</h2>
+            <div class="button-group">
+                <button onclick="load_exploit(); return false">Load Exploit</button>
+                <button class="secondary" onclick="load_goldhen(); return false">Load GoldHEN 2.3</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>AUTOMATIC JAILBREAK</h2>
+            <div class="button-group">
+                <button class="secondary" onclick="load_exploit_goldhen(); return false">Load Exploit + GoldHEN 2.3</button>
+            </div>
+            <div class="toggle-container">
+                <span class="toggle-label">Auto-load GoldHEN on page open:</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="autoLoadToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>PAYLOADS</h2>
+            <div class="button-group">
+                <button class="tertiary" onclick="load_updatesdisable(); return false">Disable Updates</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            PS4 6.72 JB Menu By: Ryan &copy; 2026
+        </div>
+    </div>
+
+    <script>
+   
+    function checkAutoLoad() {  // Check if auto-load is enabled
+         if (localStorage.getItem('autoLoadEnabled') === 'true') {        // Check if the toggle was previously set to on
+            document.getElementById('autoLoadToggle').checked = true;
+             setTimeout(load_exploit_goldhen, 500);
+        }
+    }
+    
+    document.getElementById('autoLoadToggle').addEventListener('change', function() {     // Toggle change handler
+        localStorage.setItem('autoLoadEnabled', this.checked);
+        if (this.checked) {
+             setTimeout(load_exploit_goldhen, 500);
+        }
+    });
+    
+    function load_exploit(){
+        msgs.innerHTML="<h1>Loading Exploit ...</h1>";
+        setTimeout(jailbreak,1000);
+    }
+
+    function load_exploit_goldhen(){
+        msgs.innerHTML="<h1>Loading Exploit + GoldHEN 2.3 ...</h1>";
+        LoadedMSG="<h1>Exploit + GoldHEN 2.3 Loaded ✓</h1>";
+        ExploitHen="yes";
+        MiraHen="goldhen_2.3_672.js";
+        setTimeout(jailbreak,1000);
+    }
+
+    function load_goldhen(){
+        msgs.innerHTML="<h1>Loading GoldHEN 2.3 ...</h1>";
+        LoadedMSG="<h1>GoldHEN 2.3 Loaded ✓</h1>";
+        var script = document.createElement('script');
+        script.src = "goldhen_2.3_672.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+        var script = document.createElement('script');
+        script.src = "exp_loader.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+
+    function load_updatesdisable(){
+        msgs.innerHTML="<h1>Loading Disable Updates ...</h1>";
+        LoadedMSG="<h1>Disable Updates Loaded ✓</h1>";
+        var script = document.createElement('script');
+        script.src = "disableupdate.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+        var script = document.createElement('script');
+        script.src = "exp_loader.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+    
+    // Check auto-load on page load
+    window.addEventListener('DOMContentLoaded', checkAutoLoad);
+    </script>
+</body>
+</html>
