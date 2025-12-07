@@ -265,14 +265,14 @@
             <h2>MANUAL JAILBREAK</h2>
             <div class="button-group">
                 <button onclick="load_exploit(); return false">Load Exploit</button>
-                <button class="secondary" onclick="load_goldhen(); return false">Load GoldHEN 2.3</button>
+                <button class="secondary" onclick="load_goldhen(); return false">Load GoldHEN 2.4</button>
             </div>
         </div>
         
         <div class="card">
             <h2>AUTOMATIC JAILBREAK</h2>
             <div class="button-group">
-                <button class="secondary" onclick="load_exploit_goldhen(); return false">Load Exploit + GoldHEN 2.3</button>
+                <button class="secondary" onclick="load_exploit_goldhen(); return false">Load Exploit + GoldHEN 2.4</button>
             </div>
             <div class="toggle-container">
                 <span class="toggle-label">Auto-load GoldHEN on page open:</span>
@@ -317,18 +317,18 @@
     }
 
     function load_exploit_goldhen(){
-        msgs.innerHTML="<h1>Loading Exploit + GoldHEN 2.3 ...</h1>";
-        LoadedMSG="<h1>Exploit + GoldHEN 2.3 Loaded ✓</h1>";
+        msgs.innerHTML="<h1>Loading Exploit + GoldHEN 2.4 ...</h1>";
+        LoadedMSG="<h1>Exploit + GoldHEN 2.4 Loaded ✓</h1>";
         ExploitHen="yes";
-        MiraHen="goldhen_2.3_672.js";
+        MiraHen="goldhen.js";
         setTimeout(jailbreak,1000);
     }
 
     function load_goldhen(){
-        msgs.innerHTML="<h1>Loading GoldHEN 2.3 ...</h1>";
-        LoadedMSG="<h1>GoldHEN 2.3 Loaded ✓</h1>";
+        msgs.innerHTML="<h1>Loading GoldHEN 2.4 ...</h1>";
+        LoadedMSG="<h1>GoldHEN 2.4 Loaded ✓</h1>";
         var script = document.createElement('script');
-        script.src = "goldhen_2.3_672.js";
+        script.src = "goldhen.js";
         document.getElementsByTagName('head')[0].appendChild(script);
         var script = document.createElement('script');
         script.src = "exp_loader.js";
